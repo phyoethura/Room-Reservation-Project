@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add&Edit</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.33/dist/sweetalert2.all.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.8.0/dist/sweetalert2.all.min.js"></script>
+    <script src="/proj/js/notiflix-aio-3.2.6.min.js"></script>
+    <style>
+        #top {
+            background-color: navy;
+            color: white;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            padding-left: 2rem;
+            font-weight: bolder;
+        }
+
+        i.icon-intro {
+            font-size: 1rem;
+        }
+
+        #nav {
+            padding-left: 4rem;
+            padding-right: 4rem;
+        }
+
+        nav a {
+            /* position: fixed; */
+            /* font-size: 16px; */
+            color: black;
+            text-decoration: none;
+            /* font-weight: 500; */
+            margin-left: 25px;
+            transition: .3s;
+            /* justify-content: space-between; */
+            /* align-items: center; */
+            z-index: 100;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #FFC700;
+        }
+
+        .card-text {
+            text-align: center;
+            font-weight: bolder;
+            margin: 0;
+        }
+
+        .card {
+            margin: 0;
+            padding: 0;
+        }
+
+        #card {
+            padding-left: 4rem;
+            padding-right: 4rem;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .card {
+            filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.25));
+            border-radius: 20px;
+        }
+
+        .body-card li {
+            display: inline-block;
+        }
+
+        .block {
+            display: block;
+            border-radius: 20px;
+            background-color: #d2cece;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            border: none;
+        }
+
+        .add-button {
+            color: black;
+            font-size: 1.5rem;
+        }
+
+        /* button {
+            filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.25));
+        } */
+
+        #footer {
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            padding: 1rem;
+            text-align: center;
+            text-decoration: none;
+            border-top: black;
+        }
+
+        .modal-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 380px;
+            width: 100%;
+            background-color: rgb(204, 194, 194);
+            border-radius: 18px;
+            padding: 30px 20px;
+            filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.25));
+            opacity: 0;
+            position: fixed;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-box p {
+            margin-top: 20px;
+            font-size: 400;
+        }
+
+        .modal-box button {
+            padding: 6px 12px;
+            margin: 0 30px;
+        }
+
+        .modal-box.show {
+            pointer-events: auto;
+            opacity: 1;
+        }
+
+        #disable {
+            background: none;
+            border-radius: none;
+            border: none;
+        }
+
+        form {
+            /* width: 150px; */
+            /* height: 44px; */
+            border-radius: 10px 10px;
+            /* display: flex; */
+            /* flex-direction: row; */
+            align-items: center;
+            /* text-align: center; */
+            /* padding-top: 2rem; */
+        }
+
+        input {
+            font: 16px system-ui;
+            color: #000000;
+            height: 100%;
+            width: 100%;
+            padding: 6px 10px;
+        }
+
+        #searchInput {
+            /* all: unset; */
+            font: 16px system-ui;
+            color: #000000;
+            height: 100%;
+            width: 100%;
+            padding: 6px 10px;
+            text-align: center;
+        }
+
+        #searchButton {
+            /* all: unset; */
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+        }              
+
+        #bsearch {
+            all: unset;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- TOP -->
+    <div class="container-fluid p-2" style="background-color: darkblue;">
+        <div class="container">
+            <iconify-icon icon="bx:book" width="30" style="color: #FFC700;"></iconify-icon>
+            <h1 class="text-white mx-3" style="display: inline;">Room Reservation</h1>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand bg-light shadow-sm" id="nav">
+        
+        <div class="col"></div>
+
+        <div class="col-auto">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="/staff_home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/staff_add" class="active">Add/Edit</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/staff_dashboard">Dasboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/staff_history">History</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/staff_profile"><iconify-icon icon="gg:profile" width="30"></iconify-icon></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container d-flex justify-content-end p-3" style="display: flex;">
+        <div class="container d-flex justify-content-end" style="flex:9">
+            <form class="ps-4" id="formRoom1">
+                <div style="display: flex;">
+                    <input style="flex: 8;" type="text" id="searchBar"  name="q" placeholder="Search room no. " class="form-control" >
+                    
+                
+                </div>
+                
+            </form>
+        </div>
+        <div class="container d-flex justify-content-end" style="flex:1">
+            <button class="btn btn-success " onclick="addRoom()">Add</button>
+        </div>
+        
+    </div>
+
+    <div class="container">
+        <table class="table table-striped">
+            <thead class="text-white" style="background: darkblue;">
+                <tr>
+                    <th>Building</th>
+                    <th>Room Number</th>
+
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tblRoom">
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- Modal Add/Edit Body -->
+    <div class="modal" id="add_edit_Modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background: darkblue;">
+                    <h5 class="modal-title text-white">Add Room Reservation</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="formRoom">
+
+                        <label class="form-label">Building</label>
+                        <input type="text" name="building" class="form-control mb-2">
+
+                        <label class="form-label">Room no.</label>
+                        <input type="text" name="number" class="form-control mb-2">
+
+
+
+                        <label class="form-label">Room Description</label><br>
+                        <textarea class="form-control" name="description" cols="100" rows="3"></textarea>
+                        <div class="modal-footer mt-3">
+                            <button type="submit" class="btn btn-primary" id="ok">Save</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- footer -->
+    <div class="container-fluid mt-3 p-3" style="box-shadow: 0 -4px 6px -6px #222;">
+        <div class="container text-center" style="font-size: small;">
+            copyright @ Group-6 MFU-23. All rights reserved.
+        </div>
+    </div>
+
+    <script>
+
+        const searchData2 = document.getElementById('searchBar');
+        const formRoom1 = document.getElementById('formRoom1');
+        formRoom1.onsubmit = function (e) {
+            e.preventDefault();
+            const searchData = searchData2.value;
+            console.log(searchData);
+            getRooms(searchData);
+        }
+
+
+        var action = 'add'
+        var editID = 0;
+
+        getRooms('');
+        const roomModal = new bootstrap.Modal(document.querySelector('#add_edit_Modal'));
+        var dataPublic;
+        function getRooms(dataSearch) {
+
+
+            fetch(`request_rooms_data`).then(async function (response) {
+                if (response.ok) {
+                    const reqData = await response.json();
+
+                    fetch('/rooms').then(function (response) {
+                        if (response.ok) {
+                            return response.json();
+                        }
+                        throw Error('Bad response');
+                    }).then(function (data) {
+                        let rows = '';
+
+                        dataPublic = data;
+
+                        data.forEach(function (item) {
+                            if(dataSearch == ''){
+
+                            
+                                    rows += `<tr><td>${item.building}</td>`
+                                    rows += `<td>${item.room_Number}</td>`
+                                    rows += `<td>${item.description}</td>`
+                                    if (item.room_Status == "enable") {
+                                        rows += `<td><button class="btn btn-info" onclick=editRoom(${JSON.stringify(item.room_ID)})>Edit</button>`;
+                                        let dataOK = 0;
+                                        reqData.forEach(function (requestedData) {
+                                            if (requestedData.room_ID == item.room_ID && requestedData.status == 'approved') {
+                                                dataOK = 1;
+
+
+                                            }
+
+                                        });
+
+                                        if (dataOK == 1) {
+
+                                            rows += `<button class="btn btn-danger ms-1 " disabled onclick=disableRoom(${JSON.stringify(item.room_ID)})>Disable</button></td></tr>`
+                                        }
+                                        else {
+                                            rows += `<button class="btn btn-danger ms-1" onclick=disableRoom(${JSON.stringify(item.room_ID)})>Disable</button></td></tr>`
+
+                                        }
+                                    }
+                                    else if (item.room_Status == "disable") {
+                                        rows += `<td><button class="btn btn-warning" onclick=enableRoom(${JSON.stringify(item.room_ID)})>Enable</button></td></tr>`
+                                    }
+                                }else if(dataSearch == '1'){
+
+                                }else{
+                                    console.log('case 3');
+                                    console.log('lee');
+                                    const searchLength = dataSearch.length;
+                                    
+                                    const roomNum = item.room_Number;
+                                    const sliceNum = roomNum.slice(0,searchLength);
+                                    console.log(sliceNum);
+                                    console.log(dataSearch);
+                                    if(dataSearch.toUpperCase() == sliceNum){
+
+
+
+                                    rows += `<tr><td>${item.building}</td>`
+                                    rows += `<td>${item.room_Number}</td>`
+                                    rows += `<td>${item.description}</td>`
+                                    if (item.room_Status == "enable") {
+                                        rows += `<td><button class="btn btn-info" onclick=editRoom(${JSON.stringify(item.room_ID)})>Edit</button>`;
+                                        let dataOK = 0;
+                                        reqData.forEach(function (requestedData) {
+                                            if (requestedData.room_ID == item.room_ID && requestedData.status == 'approved') {
+                                                dataOK = 1;
+
+
+                                            }
+
+                                        });
+
+                                        if (dataOK == 1) {
+
+                                            rows += `<button class="btn btn-danger ms-1 " disabled onclick=disableRoom(${JSON.stringify(item.room_ID)})>Disable</button></td></tr>`
+                                        }
+                                        else {
+                                            rows += `<button class="btn btn-danger ms-1" onclick=disableRoom(${JSON.stringify(item.room_ID)})>Disable</button></td></tr>`
+
+                                        }
+                                    }
+                                    else if (item.room_Status == "disable") {
+                                        rows += `<td><button class="btn btn-warning" onclick=enableRoom(${JSON.stringify(item.room_ID)})>Enable</button></td></tr>`
+                                    }
+                                }
+                            }
+                                
+                        });
+                        document.querySelector('#tblRoom').innerHTML = rows;
+                    }).catch(function (err) {
+                        console.error(err);
+                        alert(err);
+                    });
+                }
+            });
+
+
+        }
+
+
+
+
+
+        function disableRoom(id) {
+            Swal.fire({
+                icon: "warning",
+                title: "Warning",
+                text: "Sure to disable this room?",
+                showCancelButton: true,
+                confirmButtonText: "YES"
+            }).then(function (result) {
+                if (result.isConfirmed) {
+                    fetch(`/drooms/${id}`, { method: "POST" })
+                    getRooms('1');
+                }
+            })
+        }
+
+        function enableRoom(id) {
+            Swal.fire({
+                icon: "warning",
+                title: "Warning",
+                text: "Sure to Enable this room?",
+                showCancelButton: true,
+                confirmButtonText: "YES"
+            }).then(function (result) {
+                if (result.isConfirmed) {
+                    fetch(`/erooms/${id}`, { method: "POST" })
+                    getRooms('1');
+                }
+            })
+        }
+
+
+        const formRoom = document.querySelector("#formRoom");
+
+
+        function addRoom() {
+            action = 'add';
+            formRoom.reset();
+
+            formRoom.reset();
+            document.querySelector('h5.modal-title').innerText = "Add a new Reservation Room"
+            roomModal.show();
+
+        }
+
+        formRoom.onsubmit = function (e) {
+            e.preventDefault();
+            roomModal.hide();
+            const room_Number = formRoom.elements['number'].value;
+            const building = formRoom.elements['building'].value;
+            const description = formRoom.elements['description'].value;
+            let url = '/rooms_add';
+            let httpMethod = "POST";
+            let bodyContent = JSON.stringify({
+                "room_Number": room_Number, "building": building, "description": description, "room_Status": "enable"
+            })
+            if (action == "edit") {
+                url = `/rooms_update/${editID}`;
+                httpMethod = "PUT";
+                bodyContent = JSON.stringify({
+                    "room_Number": room_Number, "building": building, "description": description, "room_Status": "enable"
+                })
+            }
+
+            fetch(url, {
+                method: httpMethod,
+                headers: { "Content-Type": "application/json" },
+                body: bodyContent
+            }).then(function (response) {
+                if (response.ok) {
+                    formRoom.reset();
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'Add/Edit Reservation Room successfully'
+                    }).then(function (result) {
+                        getRooms('1');
+                    })
+                }
+                else {
+                    throw Error("Bad response")
+                }
+            }).catch(function (err) {
+                console.error(err)
+                alert(err)
+            })
+        }
+
+        function editRoom(item) {
+            action = 'edit'
+            editID = item;
+            dataPublic.forEach(function (data2) {
+                if (data2.room_ID == editID) {
+                    document.querySelector('h5.modal-title').innerText = "Edit a Reservation Room"
+                    document.querySelector('input[name="number"]').value = data2.room_Number;
+                    document.querySelector('input[name="building"]').value = data2.building;
+                    document.querySelector('textarea[name="description"]').value = data2.description;
+                }
+            })
+
+            roomModal.show()
+        }
+    </script>
+
+</body>
+
+</html>

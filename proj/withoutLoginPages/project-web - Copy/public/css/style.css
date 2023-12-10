@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 80px;
+    background-color: #1E005A;
+    display: flex;
+    /* justify-content: space-between;
+    align-items: center;
+    z-index: 100; */
+}
+
+.logo {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav a {
+    /* position: fixed; */
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    transition: .3s;
+    /* justify-content: space-between; */
+    align-items: center;
+    z-index: 100;
+}
+
+nav a:hover,
+nav a.active {
+    color: #FFC700;
+}
+
+.header2 {
+    position: relative;
+    background:  url("/withoutLoginPages/project-web - Copy/public/img/home.jpg") no-repeat center center;
+    background-size: cover;
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+}
+
+.header3 {
+    position: relative;
+    background:  url("/withoutLoginPages/project-web - Copy/public/img/contact1.jpg") no-repeat center center;
+    background-size: cover;
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+}
+.header4 {
+    position: relative;
+    background-image:  url("/withoutLoginPages/project-web - Copy/public/img/contact2.jpg");
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%,rgba(255, 255, 255, 0.6) 100%), url('/public/img/contact2.jpg');
+    background-size: cover;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    /* opacity: 0.4; */
+    /* filter: alpha(opacity=40); */
+}
+
+.text1 {
+    font-size: 48px;
+    color: white;
+    font-weight: 500;
+}
+.text2 {
+    font-size: 24px;
+    color: white;
+    font-weight: 500;
+}
+
+.nav1 {
+    font-size: 20px;
+    color: #1E005A;
+}
+.nav2 {
+    font-size: 20px;
+    color: #FFC700;
+}
+
+.image {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+}
+
+.image2 {
+    position: relative;
+    background: url("/withoutLoginPages/project-web - Copy/public/img/room1.jpg") no-repeat center center;;
+    background-size: cover;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+}
+
+.text3 {
+    font-size: 24px;
+    color: #1E005A;
+    font-weight: 600;
+    padding-left: 10rem;
+}
+
+.room {
+    background-color: aliceblue;
+}
+
+.services {
+    padding: 20px;
+    background-color: #FFF2C2;
+}
+
+.testimonial {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+}
+
+.testimonial-img {
+    border-radius: 20rem;
+    background-color: gainsboro;
+    width: 7rem;
+    height: 7rem;
+}
+
+i {
+    font-size: 3rem;
+    color: black;
+    padding-top: 2rem;
+}

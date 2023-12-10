@@ -1,0 +1,25 @@
+#profile{
+    background-color:white;
+    width: auto;
+    height: auto;
+    padding: 60px;
+    border-radius: 15px;
+    align-items: center;
+    align-content: center;
+}
+#profile_detail{
+    padding: 30px;
+    background-color: white;
+    border-radius: 15px; 
+    height: auto;
+    width: 300px;
+    margin-top: 20px;
+}
+input[type=text]{
+    border: solid white;
+    
+}
+button{
+    margin: 10px; 
+
+}

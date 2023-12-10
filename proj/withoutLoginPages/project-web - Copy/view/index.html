@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Reservation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.33/dist/sweetalert2.all.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script> src = "/public/js/bootstrap.bundle.min.js"</script>
+    <link rel="stylesheet" href="/proj/css/style.css">
+    <script src="https://kit.fontawesome.com/7e91af1b28.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="container-fluid p-2" style="background-color: darkblue;">
+        <div class="container" >
+            <iconify-icon icon="bx:book" width="30" style="color: #FFC700;"></iconify-icon>
+            <h1 class="text-white mx-3" style="display: inline;">Room Reservation</h1>
+                    
+                    </div>
+
+    </div>
+
+    <!-- navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+        <div class="container navbar-collapse px-5">
+            <!-- <div class="row">
+                <div class="col-xl-12">
+                    <a href="#home" class="active">Home</a>
+                    <a href="#room">Room</a>
+                    <a href="#services">Services</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="col text-end">
+                    <a class="btn btn-light border-warning" href="#">Register</a>
+                    <a class="btn btn-light border-dark" href="#">Login</a>
+                </div>
+            </div> -->
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="#home" class="active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#room">Room</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul>
+            <div>
+                <a class="btn btn-light border-warning" id="register" href="/register">Register</a>
+                <a class="btn btn-light border-dark" id="login" href="/login">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="header2 position-relative ">
+            <div class="row justify-content-center">
+                <div class="col-xl-10 text-center">
+                    <h3 class="text1">Let's Work and Consult Together</h3>
+                    <h6 class="text2">Find the best meeting room that you need</h6>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="room">
+        <div class="container p-3">
+            <h3 class="text3">Preview Room Reservation</h3>
+        </div>
+        <div class="text-center pb-3">
+            <img src="/proj/withoutLoginPages/project-web - Copy/public/img/room1.jpg" alt="room1" width="800" height="400" class="rounded">
+        </div>
+        <div class="text-center py-3">
+            <img src="/proj/withoutLoginPages/project-web - Copy/public/img/room2.jpg" alt="room2" width="800" height="400" class="rounded">
+        </div>
+        <div class="text-center py-3">
+            <img src="/proj/withoutLoginPages/project-web - Copy/public/img/room3.jpg" alt="room3" width="800" height="400" class="rounded">
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container p-5">
+            <div class="services rounded">
+                <div class="container p-4">
+                    <h4>Make planning and booking meeting rooms simple</h4>
+                    <p>With a workplace management system, space reservations ensure everyone has a safe place to meet
+                        and
+                        work. We use leading meeting software like iOFFICE that makes it easy to:
+                        <br> - Book rooms, schedule meetings, send meeting invites, and track confirmations.
+                        <br> - Schedule remotely through mobile booking.
+                        <br> - Plan the space to maintain proper distancing.
+                        <br> - Coordinate technology, AV equipment and other collaboration tools.
+                        <br> - Track cleaning schedules and only allow cleaned spaces to be available for reservation.
+                    </p>
+                    <h4>Focus on the agenda, our meeting room services will take care of the details</h4>
+                    <p>A lot of factors go into every meeting. Whether you need a regular plan to handle daily meetings
+                        or a
+                        team to manage larger conference events, our end-to-end meeting rooms services feature:
+                        <br> - Consultation
+                        <br> - Design
+                        <br> - Configuration
+                        <br> - Implementation
+                        <br> - Setup
+                        <br> - Data analysis to inform future events
+                        <br> From distancing management to AV that is visually sharp with clear audio, we are committed
+                        to
+                        keeping you productive.
+                    </p>
+                    <h4>Position your company to adapt quickly with business intelligence and analytics</h4>
+                    <p>Our services include detailed reporting on meeting room usage. You can look at hourly, daily, or
+                        yearly reporting to identify usage patterns and adjust your space utilization as needed or
+                        appropriate. The better your understanding of meeting room use, the more you can allocate space
+                        for
+                        employees to work, keeping everyone safe and productive.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="header3">
+            <div class="row justify-content-center">
+                <div class="col-sm-5 text-center">
+                    <h3 class="text1">Contact</h3>
+                    <hr class="text-white">
+                </div>
+            </div>
+        </div>
+        <div class="header4 testimonial">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="mx-auto mb-5 mb-lg-0 text-center">
+                        <div class="testimonial-img mx-auto mb-3">
+                            <i class="fa-solid fa-phone "></i>
+                            <!-- <img class="img-fluid rounded-circle text-center" src="/public/img/telephone.png" alt="telephone"> -->
+                        </div>
+                        <h4>Call Us</h4>
+                        <p>0-5391-6000</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="mx-auto mb-5 mb-lg-0 text-center">
+                        <div class="testimonial-img mx-auto mb-3">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <!-- <img class="img-fluid rounded-circle text-center" src="/public/img/telephone.png" alt="telephone"> -->
+                        </div>
+                        <h4>Address</h4>
+                        <p>Chiang Rai, Thailand</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="mx-auto mb-5 mb-lg-0 text-center">
+                        <div class="testimonial-img mx-auto mb-3">
+                            <i class="fa-solid fa-envelope"></i>
+                            <!-- <img class="img-fluid rounded-circle text-center" src="/public/img/telephone.png" alt="telephone"> -->
+                        </div>
+                        <h4>Email</h4>
+                        <p>pr@mfu.ac.th</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container-fluid mt-3 p-3" style="box-shadow: 0 -4px 6px -6px #222;">
+            <div class="container text-center" style="font-size: small;">
+                copyright @ reserved at Group-6 MFU-23
+            </div>
+        </div>
+    </section>
+
+    <script>
+        
+        let sections = document.querySelectorAll('section');
+        let navLink = document.querySelectorAll('header nav a');
+
+        window.onscroll = () => {
+            sections.forEach(sec => {
+                let top = window.scrollY;
+                let offset = sec.offsetTop;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
+
+                if (top >= offset && top < offset + height) {
+                    navLink.forEach(link => {
+                        link.classList.remove('active');
+                        document.querySelector('header nav a [href*=' + id + ']').classList.add('active');
+                    });
+                };
+            });
+        };
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.33/dist/sweetalert2.all.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="/proj/js/notiflix-aio-3.2.6.min.js"></script>
+    <script src="/proj/js/notiflix-aio-3.2.6.min.js"></script>
+    <link rel="stylesheet" href="/proj/css/navBar.css">
+    <title>Request</title>
+</head>
+
+<body>
+    <div class="container-fluid p-2" style="background-color: darkblue;">
+        <div class="container">
+            <iconify-icon icon="bx:book" width="30" style="color: #FFC700;"></iconify-icon>
+            <h1 class="text-white mx-3" style="display: inline;">Room Reservation</h1>
+
+        </div>
+
+    </div>
+    <nav class="navbar navbar-expand bg-light shadow-sm" id="nav">
+        
+
+        <div class="col"></div>
+
+        <div class="col-auto">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="/welcome">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/lecturer_request" class="active">Request</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/lecturer_dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/lecturer_history">History</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/lecturer_profile"><iconify-icon icon="gg:profile" width="30"></iconify-icon></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-3  justify-content-center" style="display: flex;">
+
+        <div class="ps-5 container ">
+            <table class="table table-striped" style="box-shadow:3px 3px 3px #8888; ">
+                <thead class="text-white text-center" style="background: darkblue;">
+                    <tr>
+                        <th scope="col text-center">
+                            Building
+                        </th>
+                        <th scope="col">
+                            Room Number
+                        </th>
+
+                        <th>
+                            Requested by MFU-ID
+                        </th>
+                        <th>
+                            Date
+                        </th>
+                        <th scope="col">
+                            Reservation Slot
+                        </th>
+                        <th scope="col">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="text-center" id="requestData">
+
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+    <div class="modal" id="checkModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background: darkblue;">
+                    <h5 class="modal-title text-white">Check Request</h5>
+                </div>
+                <div class="modal-body">
+
+                    <!-- <div class="text-center">
+                            <a href="" class="nav-link text-dark"><i class="bi bi-plus-lg"></i><br>image</a>
+                        </div> -->
+
+
+
+                    <table class="">
+
+                        <tbody>
+
+                            <tr style="display:none;">
+                                <td></td>
+                                <td id="requestID"></td>
+                            </tr>
+                            <tr class="" style="box-shadow: 0 4px 6px -6px #222;">
+                                <td class="">
+                                    <div class="m-2"> Building </div>
+                                </td>
+                                <td>-</td>
+                                <td><input id="building" name="" disabled> </input></td>
+                            </tr>
+                            <tr class="" style="box-shadow: 0 4px 6px -6px #222;">
+                                <td class="">
+                                    <div class="m-2">Room </div>
+                                </td>
+                                <td>-</td>
+                                <td><input id="roomNumber" disabled></input></td>
+                            </tr>
+                            <tr class="" style="box-shadow: 0 4px 6px -6px #222;">
+                                <td class="">
+                                    <div class="m-2">Description </div>
+                                </td>
+                                <td> -</td>
+                                <td><input id="description" disabled></input></td>
+                            </tr>
+                            <tr class="" style="box-shadow: 0 4px 6px -6px #222;">
+                                <td class="">
+                                    <div class="m-2">Time </div>
+                                </td>
+                                <td>-</td>
+                                <td><input id="time" disabled></input></td>
+                            </tr>
+                            <tr class="" style="box-shadow: 0 4px 6px -6px #222;">
+                                <td class="">
+                                    <div class="m-2">Date</div>
+                                </td>
+                                <td>-</td>
+                                <td><input id="date" disabled></input></td>
+                            </tr>
+                            <tr class="" style="box-shadow: 0 4px 6px -6px #222;">
+                                <td class="">
+                                    <div class="m-2">MFU-ID</div>
+                                </td>
+                                <td>-</td>
+                                <td><input id="mfu_ID" disabled></input></td>
+                            </tr>
+                            <tr class="" style="box-shadow: 0 4px 6px -6px #222;">
+                                <td class="">
+                                    <div class="m-2">Name</div>
+                                </td>
+                                <td>-</td>
+                                <td><input input id="name" disabled></input></td>
+                            </tr>
+                            <tr class="" style="box-shadow: 0 4px 6px -6px #222; ">
+                                <td class="">
+                                    <div class="m-2 ">Reason</div>
+                                </td>
+                                <td>-</td>
+                                <td><input id="reason" disabled></input></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="modal-footer mt-3">
+                        <button type="button" class="btn btn-success" onclick="approveButton()">Approve</button>
+                        <button type="button" class="btn btn-danger" onclick="rejectButton()">Reject</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-3 p-3" style="box-shadow: 0 -4px 6px -6px #222;">
+        <div class="container text-center" style="font-size: small;">
+
+            copyright @ Group-6 MFU-23. All rights reserved.
+
+        </div>
+
+    </div>
+
+    <script>
+        const data = document.getElementById('requestData');
+        const checkModal = new bootstrap.Modal(document.querySelector('#checkModal'));
+        let dataHtml = ``;
+        //const data1
+        let data4;
+        fetch(`/lecturer_request_data`).then(async function (response) {
+            if (response.ok) {
+                const data1 = await response.json();
+                data4 = data1;
+                console.log(data4);
+                console.log('hi 3');
+                data1.forEach(function (data2) {
+
+                    if (data2.status == 'pending') {
+                        let checkSlot = 'pending';
+                        console.log(checkSlot);
+                        console.log('checkslot');
+                        data1.forEach(function (checkRequest) {
+                            //console.log(checkRequest);
+                            //console.log('checkreq');
+                            if (data2.time == checkRequest.time) {
+                                console.log(checkSlot);
+                                console.log('check slot1');
+                                if (data2.date == checkRequest.date) {
+                                    console.log(checkSlot);
+                                    console.log('check slot2');
+                                    if (data2.room_Number == checkRequest.room_Number) {
+                                        console.log(checkSlot);
+                                        console.log('check slot3');
+                                        if (checkRequest.status == 'approved') {
+                                            checkSlot = 'approved';
+                                            console.log(checkSlot);
+                                            console.log('checkslot');
+                                        }
+                                        else {
+                                            console.log(checkSlot);
+                                            console.log('check slot4');
+                                        }
+                                    }
+
+                                }
+                            }
+                        });
+                        if (checkSlot == "pending") {
+                            dataHtml += `<tr><td>${data2.building}</td>`;
+                            dataHtml += `<td>${data2.room_Number}</td>`;
+                            dataHtml += `<td>${data2.mfu_ID}</td>`;
+                            dataHtml += `<td>${data2.date}</td>`;
+                            dataHtml += `<td><button class="btn btn-success disabled">${data2.time}</button></td>`;
+                            dataHtml += `<td><button class="btn btn-success mx-2" onclick="checkFunction(${data2.request_ID})">check</button>`;
+                            dataHtml += `<button class="btn btn-danger " onclick="rejectFunction(${data2.request_ID})">reject</button></td></tr>`;
+                            console.log('lee lar mmsp');
+                            data.innerHTML = dataHtml;
+                            console.log(dataHtml);
+                        }
+                        else {
+                            dataHtml += `<tr><td>${data2.building}</td>`;
+                            dataHtml += `<td>${data2.room_Number}</td>`;
+                            dataHtml += `<td>${data2.mfu_ID}</td>`;
+                            dataHtml += `<td>${data2.date}</td>`;
+                            dataHtml += `<td><button class="btn btn-danger disabled">${data2.time}</button></td>`;
+                            dataHtml += `<td><button class="btn btn-success disabled mx-2" onclick="">check</button>`;
+                            dataHtml += `<button class="btn btn-danger " onclick="rejectFunction(${data2.request_ID})">reject</button></td></tr>`;
+                            console.log('lee lar2');
+                            data.innerHTML = dataHtml;
+                        }
+
+
+                        //dataHtml+=`<td><div class="col btn btn-success ms-1 disabled" onclick="checkFunction(${data2.id})">${data2.time}</div></td>`;
+                        //dataHtml+=`<td><div class="col btn btn-success ms-0.1 ">check</div></td></tr>`;
+                        //console.log(dataHtml);
+                        //console.log('mmsp');
+
+                        console.log('mal');
+                        console.log(dataHtml);
+                        data.innerHTML = dataHtml;
+                    }           //data.innerHTML=dataHtml;
+                });
+
+
+            }
+
+        });
+
+        function checkFunction(r_ID) {
+            checkModal.show();
+            console.log(data4);
+            console.log('hi 6');
+            console.log(r_ID);
+            data4.forEach(function (data5) {
+                //console.log(data5.room_Number);
+                //console.log('hiii');
+                //console.log(data5.request_ID==r_ID);
+                if (data5.request_ID == r_ID) {
+                    document.getElementById('requestID').value = data5.request_ID;
+                    //document.querySelector('input[name="number"]').value = 'name';
+                    //console.log(data5.room_Number);
+                    //console.log(r_ID);
+                    //console.log('hi');
+                    //const lol = document.getElementById('roomNumber').value;
+                    document.getElementById('roomNumber').value = data5.room_Number;
+                    const lol = document.getElementById('roomNumber');
+                    console.log(lol.value);
+                    console.log('lee number');
+                    document.getElementById('building').value = data5.building;
+                    document.getElementById('description').value = data5.description;
+                    document.getElementById('time').value = data5.time;
+                    document.getElementById('date').value = data5.date;
+                    document.getElementById('mfu_ID').value = data5.mfu_ID;
+                    console.log(data5.name);
+                    document.getElementById('name').value = data5.name;
+                    document.getElementById('reason').value = data5.reason;
+                    const leee = document.getElementById('time').value;
+                    console.log(leee);
+                    //console.log(data5.description);
+                    //checkModal.show();
+                }
+
+            });
+            checkModal.show();
+
+        }
+        function approveButton() {
+            checkModal.hide();
+            const id = document.getElementById('requestID').value;
+            try {
+                const options = {
+                    method: 'PUT',
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ "id": id }),
+                };
+                fetch(`/lecturer_request_approve`, options).then(async function (response) {
+                    if (response.ok) {
+                        const data7 = await response.text();
+                        Notiflix.Report.success('Approved', data7, 'OK');
+                        window.location.reload();
+                        //window.location.assign('/lecturer_request');
+                    }
+                });
+            }
+            catch (err) {
+                console.error(err.message);
+                // alert(err.message);
+                Notiflix.Report.failure('Error', err.message, 'Close');
+            }
+        }
+        function rejectButton() {
+
+            const id = document.getElementById('requestID').value;
+            rejectFunction(id);
+            checkModal.hide();
+        }
+
+
+
+        function rejectFunction(id) {
+
+            //data3[0].status = 'rejected';
+            //console.log(data3);
+            try {
+                const options = {
+                    method: 'PUT',
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ "id": id }),
+                };
+                fetch(`/lecturer_request_reject`, options).then(async function (response) {
+                    if (response.ok) {
+                        const data4 = await response.text();
+                        Notiflix.Report.success('Rejected', data4, 'OK');
+                        window.location.reload();
+                        //window.location.assign('/lecturer_request');
+                    }
+                });
+            }
+            catch (err) {
+                console.error(err.message);
+                // alert(err.message);
+                Notiflix.Report.failure('Error', err.message, 'Close');
+            }
+
+
+        }
+
+    </script>
+</body>
+
+</html>

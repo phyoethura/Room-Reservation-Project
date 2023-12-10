@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.33/dist/sweetalert2.all.min.js"></script>
+     <script src="/proj/img/fontawesome.js"></script>
+    <script src="/proj/img/fontawesome.min.js"></script>
+    <script src="/proj/img/all.min.js"></script>
+    <script src="/proj/img/all.js"></script>
+    <link rel="stylesheet" href="/login/test.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid p-2" style="background-color: darkblue;">
+        <div class="container" >
+            <i class="bi bi-journals text-warning"></i>
+            <i class="fas fa-chalkboard fa-2xl" style="color: yellow;"></i>
+                <h1 class="text-white" style="display: inline;">Room Reservation</h1>
+                    
+                    </div>
+
+    </div>
+    <div class="container " style="box-shadow: 0 4px 6px -6px #222;">
+        <nav class="navbar navbar-expand navbar-light  me-0 " id="navv">
+            
+                <div class="navbar-nav ms-auto ">
+                <a href="/proj/html/index.html" class="nav-item nav-link   " >Home</a>
+                <a href="/proj/html/staff_request.html" class="nav-item nav-link ">Request</a>
+                <a href="/proj/html/lecturer_dashboard.html" class="nav-item nav-link">Dashboard</a>
+                <a href="/proj/html/lecturer_history.html" class="nav-item nav-link">History</a>
+                <a href="/proj/html/lecturer_profile.html" class="nav-item nav-link active"><i class="fa fa-user fa-2xl"></i></a>
+                </div>
+        
+        </nav>
+    </div>
+    <div>
+        <div class="provider">
+            <div>
+                <div class="info-box"></div>
+                <img class="image" src="https://via.placeholder.com/555x305" />
+                <div class="info-label">Room No - S7A(401)<br />Building -
+                    S7<br /></div>
+                <div class="description"></div>
+                <div class="address">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore</div>
+                <div class="address-box"></div>
+        <div class="label3">Date*</div>
+        <input class="input4" type="time" min="09:00" max="18:00"
+            id="appt" name="appt">
+        <div class="label4">Time*</div>
+        <input class="input3" type="text">
+        <div class="label5">Your MFU ID* </div>
+        <input class="input5" type="text">
+        <div class="label6">Your Name*</div>
+        <input class="input6" type="text">
+        <div class="input7" type="text">
+            <label class="text">Reason for booking</label>
+        </div>
+        <div class="line"></div>
+        <button class="button"></button>
+        <label class="btn-label">Book</label>
+    </div>
+</div>
+     
+    <div class="container-fluid mt-3 p-3" style="box-shadow: 0 -4px 6px -6px #222;">
+        <div class="container text-center" style="font-size: small;">
+            
+                 copyright @ reserved at Group-6 MFU-23
+                    
+        </div>
+    </div>
+
+    <script>
+           const btn=document.querySelector('button');
+           document.querySelector('#edit').onclick=function(){
+            
+            document.querySelector('#name').disabled=false;
+            document.querySelector('#school').disabled=false;
+            document.querySelector('#gmail').disabled=false;
+            btn.innerHTML="OK"
+           }
+           btn.onclick=function(){
+
+            if(btn.innerText=="OK"){
+            document.querySelector('#name').disabled=true;
+            document.querySelector('#school').disabled=true;
+            document.querySelector('#gmail').disabled=true;
+            btn.innerHTML="Logout"
+            }
+
+           else if(btn.innerHTML =="Logout"){
+                Swal.fire({
+                    title:"logout",
+                    text: "Are you sure to logout?",
+                    showCancelButton: true,
+                    confirmButtonText:"Logout"
+                }).then((result)=>{
+                    if(result.isConfirmed){
+                      window.location.reload();
+                    }
+                })
+            }
+           }
+    </script>
+    <style scoped>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background: white;
+        }
+        .provider {
+            display: grid;
+            width: 100%;
+            height: 100%;
+        }
+        .header {
+            width: 100%;
+            height: 128px;
+            left: 0px;
+            top: 0px;
+            position: absolute;
+            background: #1E005A;
+        }
+        .logo-box {
+            width: 50px;
+            height: 50px;
+            left: 100px;
+            top: 39px;
+            position: absolute;
+        }
+        .logo-element1 {
+            width: 37.50px;
+            height: 41.67px;
+            left: 6.25px;
+            top: 4.17px;
+            position: absolute;
+        }
+        .logo-element2 {
+            width: 18.75px;
+            height: 4.17px;
+            left: 16.67px;
+            top: 12.50px;
+            position: absolute;
+            background: #FFC700;
+        }
+        .title {
+            left: 188px;
+            top: 44px;
+            position: absolute;
+            color: white;
+            font-size: 32px;
+            font-family: Montserrat;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+        .content {
+            display: flex;
+            justify-content:end;
+            align-items: center;
+            width: 100%;
+            height: 80px;
+            left: 0px;
+            top: 128px;
+            position: absolute;
+            background: white;
+            box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+        }
+        .label1 {
+            color: black;
+            font-size: 18px;
+            font-family: Montserrat;
+            font-weight: 500;
+            word-wrap: break-word;
+            padding-right: 10px;
+        }
+        .label2 {
+            width: 360px;
+            height: 50px;
+            color: #FFC700;
+            font-size: 32px;
+            font-family: Montserrat;
+            font-weight: 500;
+            word-wrap: break-word;
+        }
+        .label3 {
+            width: 169px;
+            left: 1037px;
+            top: 383px;
+            position: absolute;
+            color: black;
+            font-size: 24px;
+            font-family: Montserrat;
+            font-weight: 500;
+            word-wrap: break-word;
+        }
+        .input3 {
+            width: 223px;
+            height: 45px;
+            left: 789px;
+            top: 375px;
+            position: absolute;
+            background: #D9D9D9;
+            border-radius: 20px;
+        }
+        .label4 {
+            width: 75px;
+            left: 1037px;
+            top: 308px;
+            position: absolute;
+            color: black;
+            font-size: 24px;
+            font-family: Montserrat;
+            font-weight: 500;
+            word-wrap: break-word;
+        }
+        .input4 {
+            width: 223px;
+            height: 45px;
+            left: 788px;
+            top: 300px;
+            position: absolute;
+            background: #D9D9D9;
+            border-radius: 20px;
+        }
+        .label5 {
+            width: 205px;
+            height: 40px;
+            left: 1037px;
+            top: 458px;
+            position: absolute;
+            color: black;
+            font-size: 24px;
+            font-family: Montserrat;
+            font-weight: 500;
+            word-wrap: break-word;
+        }
+        .input5 {
+            width: 223px;
+            height: 45px;
+            left: 789px;
+            top: 450px;
+            position: absolute;
+            background: #D9D9D9;
+            border-radius: 20px;
+        }
+        .label6 {
+            width: 160px;
+            left: 1037px;
+            top: 530px;
+            position: absolute;
+            color: black;
+            font-size: 24px;
+            font-family: Montserrat;
+            font-weight: 500;
+            word-wrap: break-word;
+        }
+        .input6 {
+            width: 223px;
+            height: 45px;
+            left: 789px;
+            top: 522px;
+            position: absolute;
+            background: #D9D9D9;
+            border-radius: 20px;
+        }
+        .input7 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 463px;
+            height: 45px;
+            left: 789px;
+            top: 586px;
+            position: absolute;
+            background: #D9D9D9;
+            border-radius: 20px;
+        }
+        .button {
+            width: 133px;
+            height: 73px;
+            left: 958px;
+            top: 704px;
+            position: absolute;
+            background: #FFC700;
+            border-radius: 30px;
+        }
+        .btn-label {
+            left: 985px;
+            top: 721px;
+            position: absolute;
+            color: white;
+            font-size: 32px;
+            font-family: Montserrat;
+            font-weight: 500;
+            word-wrap: break-word;
+        }
+        .line {
+            width: 669px;
+            height: 0px;
+            left: 691px;
+            top: 670px;
+            position: absolute;
+            border-bottom: 1px black solid;
+        }
+        .label7 {
+            left: 170px;
+            top: 401px;
+            position: absolute;
+            color: black;
+            font-size: 18px;
+            font-family: Montserrat;
+            font-weight: 500;
+            word-wrap: break-word;
+        }
+        .info-box {
+            width: 555px;
+            height: 78px;
+            left: 106px;
+            top: 596px;
+            position: absolute;
+            background: #D9D9D9;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+        .image {
+            width: 555px;
+            height: 305px;
+            left: 106px;
+            top: 291px;
+            position: absolute;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+        .info-label {
+            left: 276px;
+            top: 603px;
+            position: absolute;
+            text-align: center;
+            color: black;
+            font-size: 24px;
+            font-family: Inter;
+            font-weight: 500;
+            word-wrap: break-word;
+        }
+        .footer {
+            height: 53px;
+            left: 0px;
+            top: 818px;
+            position: absolute;
+        }
+        .footer-line {
+            width: 1440px;
+            height: 0px;
+            left: 0px;
+            top: 0px;
+            position: absolute;
+            border: 1px black solid;
+        }
+        .footer-text {
+            width: 1440px;
+            left: 522px;
+            top: 29px;
+            position: absolute;
+            color: black;
+            font-size: 20px;
+            font-family: Inter;
+            font-weight: 300;
+            word-wrap: break-word;
+        }
+        .booking-label {
+            left: 958px;
+            top: 156px;
+            position: absolute;
+            color: black;
+            font-size: 20px;
+            font-family: Montserrat;
+            font-weight: 500;
+            word-wrap: break-word;
+        }
+        .time-input {
+            left: 831px;
+            top: 308px;
+            position: absolute;
+            color: #6A4A4A;
+            font-size: 24px;
+            font-family: Montserrat;
+            font-weight: 500;
+            word-wrap: break-word;
+        }
+        .date-input {
+            left: 798px;
+            top: 382px;
+            position: absolute;
+            color: #6A4A4A;
+            font-size: 24px;
+            font-family: Montserrat;
+            font-weight: 500;
+            word-wrap: break-word;
+        }
+        .mfu-id-input {
+            left: 831px;
+            top: 458px;
+            position: absolute;
+            color: #6A4A4A;
+            font-size: 24px;
+            font-family: Montserrat;
+            font-weight: 500;
+            word-wrap: break-word;
+        }
+        .name-input {
+            left: 831px;
+            top: 530px;
+            position: absolute;
+            color: #6A4A4A;
+            font-size: 24px;
+            font-family: Montserrat;
+            font-weight: 500;
+            word-wrap: break-word;
+        }
+        .description {
+            left: 927px;
+            top: 599px;
+            position: absolute;
+            color: #614B4B;
+            font-size: 16px;
+            font-family: Montserrat;
+            font-weight: 500;
+            word-wrap: break-word;
+        }
+        .address {
+            width: 521px;
+            height: 53px;
+            left: 126px;
+            top: 714px;
+            position: absolute;
+            color: black;
+            font-size: 20px;
+            font-family: Montserrat;
+            font-weight: 400;
+            word-wrap: break-word;
+        }
+        .address-box {
+            width: 558px;
+            height: 82px;
+            left: 105px;
+            top: 695px;
+            position: absolute;
+            background: rgba(217, 217, 217, 0.40);
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 20px;
+        }
+        .text {
+            font-family: Montserrat;
+            font-size: 16px;
+            color: #614B4B;
+        }
+    </style>
+     
+</body>
+</html>

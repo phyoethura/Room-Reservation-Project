@@ -1,0 +1,35 @@
+#room{
+    background-color: rgb(30, 0, 90);
+    width: 200px;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+
+
+#dashboard,#history,#profile{
+    background-color:white;
+    width: auto;
+    height: auto;
+    padding: 60px;
+    border-radius: 15px;
+    align-items: center;
+}
+#profile_detail{
+    padding: 30px;
+    background-color: white;
+    border-radius: 15px; 
+    height: auto;
+    width: 300px;
+    margin-top: 20px;
+}
+input[type=text]{
+    border: solid white;
+    
+}
+button{
+    margin: 10px; 
+
+}
+
