@@ -32,9 +32,15 @@ Steps
 - install npm
 - install xampp
 
+# check out the "test.sql" file for registered id and password
+- 6431501173/1111 (role-1)(staff)
+- 6431501140/2222 (role-2)(lecturer)
+- 6431501174/3333 (role-3)(student)
+
 # how to run
 Steps
 - start xampp
 - on your workdir, run "npm init -y"
 - run "node proj"
+
 
