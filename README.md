@@ -33,6 +33,7 @@ Steps
 - install xampp
 
 # check out the "test.sql" file for registered id and password
+passwords are bicrypted 
 - 6431501173/1111 (role-1)(staff)
 - 6431501140/2222 (role-2)(lecturer)
 - 6431501174/3333 (role-3)(student)
