@@ -3,7 +3,7 @@ The Project is about room reservation created by 3rd year students of MFU 2023.
 The Project includes staff, teacher(lecturer/approver) and student users.
 
 # Project Members
-- Mr. Phyo Thura/ 6431501173 (MFU-ID)
+- [Mr. Phyo Thura](https://github.com/phyoethura)/ 6431501173 (MFU-ID)
 - Mr. Salai David Poi Hlan/ 6431501174 (MFU-ID)
 - Mr. Watcharapol Suphasri/ 6431501105 (MFU-ID)
 - Miss Panchaya Rueangsri/ 6431501140 (MFU-ID)
