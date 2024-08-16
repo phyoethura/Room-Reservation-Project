@@ -1,0 +1,25 @@
+{
+  "name": "room-reservation-project",
+  "version": "1.0.0",
+  "description": "The Project is about room reservation created by 3rd year students of MFU 2023.\r The Project includes staff, teacher(lecturer/approver) and student users.",
+  "main": "proj.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "all": "^0.0.0",
+    "bcrypt": "^5.1.1",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "fund": "^1.0.0",
+    "install": "^0.13.0",
+    "memorystore": "^1.6.7",
+    "mysql2": "^3.11.0",
+    "node": "^22.6.0",
+    "npm": "^10.8.2",
+    "proj": "^0.0.1"
+  }
+}
