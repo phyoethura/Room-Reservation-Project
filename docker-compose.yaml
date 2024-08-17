@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  db:
+    build: ./app.lee
+    environment:
+      MYSQL_ROOT_PASSWORD: Mysqlpass75!
+      MYSQL_DATABASE: test
+    restart: always
+  web:
+    build: ./app/lee
+    environment:
+      MYSQL_DATABASE: test
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Mysqlpass75!
+      MYSQL_HOST: db
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    restart: on-failure

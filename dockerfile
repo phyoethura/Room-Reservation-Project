@@ -1,9 +1,6 @@
-FROM node:18.18.2
-
-WORKDIR /var/www/html
-
-COPY . /var/www/html
-
+FROM node:15-alpine
+WORKDIR /app/lee
+COPY . .
 RUN npm install
-
 EXPOSE 3000
+CMD ["node", "proj"]
