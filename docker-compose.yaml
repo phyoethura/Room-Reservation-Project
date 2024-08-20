@@ -1,20 +1,32 @@
-version: "3.8"
+
 services:
-  db:
-    build: ./app.lee
-    environment:
-      MYSQL_ROOT_PASSWORD: Mysqlpass75!
-      MYSQL_DATABASE: test
-    restart: always
-  web:
-    build: ./app/lee
-    environment:
-      MYSQL_DATABASE: test
-      MYSQL_USER: root
-      MYSQL_PASSWORD: Mysqlpass75!
-      MYSQL_HOST: db
-    ports:
-      - "3000:3000"
+  mysql:
+    build:
+      context: ./mysql
+      dockerfile: dockerfile
+    container_name: mysql-container
+    
+    networks:
+      - hello_network
+
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: node-app
     depends_on:
-      - db
-    restart: on-failure
+      - mysql
+    ports:
+      - "3000:3000" # Map port 3000 on host to port 3000 in the container
+    networks:
+      - hello_network
+    environment:
+      DB_HOST: mysql
+      DB_USER: root
+      DB_PASSWORD: root_password
+      DB_NAME: test
+networks:
+  hello_network:
+
+volumes:
+  mysql-data:
