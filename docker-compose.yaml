@@ -1,32 +1,40 @@
+version: '3.8'
 
 services:
-  mysql:
-    build:
-      context: ./mysql
-      dockerfile: dockerfile
-    container_name: mysql-container
-    
-    networks:
-      - hello_network
-
-  node:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: node-app
+  # Node.js service
+  nodejs:
+    build: .
+    container_name: nodejs-app
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=your_mysql_root_password
+      - MYSQL_DATABASE=test
     depends_on:
       - mysql
-    ports:
-      - "3000:3000" # Map port 3000 on host to port 3000 in the container
     networks:
-      - hello_network
+      - proj_network
+  # MySQL service
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+    ports:
+      - "3307:3306"
     environment:
-      DB_HOST: mysql
-      DB_USER: root
-      DB_PASSWORD: root_password
-      DB_NAME: test
-networks:
-  hello_network:
-
+      MYSQL_ROOT_PASSWORD: your_mysql_root_password
+      MYSQL_DATABASE: test
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./test.sql:/docker-entrypoint-initdb.d/test.sql
+    networks:
+      - proj_network
 volumes:
-  mysql-data:
+  mysql_data:
+networks:
+      proj_network:
