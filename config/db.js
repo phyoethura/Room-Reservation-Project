@@ -2,9 +2,9 @@ const mysql = require("mysql2");
 
 
 const connectionConfig = {
-    host: process.env.MYSQL_HOST || 'mysql',
+    host: process.env.MYSQL_HOST || 'localhost',
     user: process.env.MYSQL_USER || 'root',
-    password: process.env.MYSQL_PASSWORD || 'your_mysql_root_password',
+    password: process.env.MYSQL_PASSWORD || 'Mysql123!@#',
     database: process.env.MYSQL_DATABASE || 'test',
 };
 
@@ -26,9 +26,9 @@ connectWithRetry();
 
 
 const con = mysql.createConnection({
-    host: process.env.MYSQL_HOST || 'mysql',
+    host: process.env.MYSQL_HOST || 'localhost',
     user: process.env.MYSQL_USER || 'root',
-    password: process.env.MYSQL_PASSWORD || 'your_mysql_root_password',
+    password: process.env.MYSQL_PASSWORD || 'Mysql123!@#',
     database: process.env.MYSQL_DATABASE || 'test',
     dateStrings: "date",
 });
