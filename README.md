@@ -79,6 +79,13 @@ It supports 3 types of users:
 
 ---
 
+## 🎨 Design Prototype
+
+View the full UI/UX design in Figma:  
+🔗 [Figma Design – Web Project](https://www.figma.com/design/a53WWrsvlVSjISxE2lszQS/Web-Project?node-id=0-1&t=0BhN2sxA3Ta3nGLT-1)
+
+---
+
 ## 🖼️ Project Screenshots
 
 ### 🔐 Authentication
@@ -122,8 +129,7 @@ It supports 3 types of users:
 ![Manage Rooms](images/staff/manage.png)
 
 **Add Room Popup**  
-![Add Room](images/staff/popupAdd
-.png)
+![Add Room](images/staff/popupAdd.png)
 
 **Dashboard**  
 ![Staff Dashboard](images/staff/dashboard.png)
